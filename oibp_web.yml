@@ -1,0 +1,53 @@
+spring:
+  profiles: dev_singleton
+  redis:
+    database: 0
+    host: redis
+    port: 6379
+    password: oibp123!@#
+    pool:
+      max-active: 10
+      max-wait: -1
+      max-idle: 10
+      
+project: 
+  environment: dev
+  runmode: singleton
+  #runmode: saas
+  singleton:
+    #enterprise: xjzhou  #1.1.1
+    enterprise: kpi_data
+  checkDataEnable: false
+  version: 1.2.2
+
+datasource:
+  oibp_core:
+    driverClass: com.mysql.jdbc.Driver
+    #url: jdbc:mysql://192.168.1.101:3306/oibp_core?useUnicode=true&characterEncoding=UTF-8&&useSSL=false&rewriteBatchedStatement=true
+    url: jdbc:mysql://127.0.0.1:3306/oibp_core?useUnicode=true&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true
+    #url: jdbc:mysql://gz-cdb-bspxat6d.sql.tencentcdb.com:3306/oibp_core?useUnicode=true&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true
+    username: remoteuser
+    password: RK0FnE7TsiZYHyLxpgJ8iIEtpW7eSnrYe370Y2Wy6XW62c9VpBvQGX7YwByE2Xp8iWdni8lg4b0V+VUZwZCXHQ==
+    initialSize: 20
+    minIdle: 20
+    maxActive: 50
+    decryptKey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAILqcyiEIU/xsognRHM+6PX17R0gb+AUgJ75aN+Pn08PNGgTf5Ni4ibD4xGRSZimFSiTut+5nBGE4xMdlBHvKT0CAwEAAQ==
+    bin:
+      path: /usr/bin/
+  oibp_init:
+    name: oibp_init_ent
+    
+sms:
+  config:
+    username: oibp
+    password: DLzQcqo0IxLsGOpZ6BVNCef64WLUrFpOl538bQFAyJnCHz1ft3B0MYOYeysxHgLSQ0z5Zf6q+oaMOGE6gtI8WQ==
+    decryptKey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJNI4RFzpE8X5i9Btg6xURhUwCazH9+VDJ+yRYWJZeT5AYEJcp9L5Hg/khWw0L4kpppoAtzQ6YM6W/sGqV2Afj8CAwEAAQ==
+    url: http://www.ztsms.cn/sendSms.do?username={username}&password={password}&mobile={mobile}&content={content}&dstime={dstime}&productid={productid}
+    product:
+      id: 887362
+
+logging:
+  level:
+    root: info
+ni:
+  oibp_web
